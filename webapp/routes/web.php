@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +18,11 @@ use App\Http\Controllers\PostsController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/index', [PostsController::class, 'index']);
-Route::get('/show', [PostsController::class, 'show']);
+//Route::get('/index', [PostsController::class, 'index']);
+//Route::get('/show', [PostsController::class, 'show']);
+Route::get('/index', [PostController::class, 'index'])->name('index');
+Route::get('/create', [PostController::class, 'showCreate'])->name('show.create');
+Route::post('/create', [PostController::class, 'storePost'])->name('store.post');
+Route::get('/edit/{id}', [PostController::class, 'showEdit'])->name('show.edit');
+Route::post('/edit/{id}', [PostController::class, 'registEdit'])->name('regist.edit');
+Route::delete('/delete/{id}', [PostController::class, 'deletePost'])->name('delete');
