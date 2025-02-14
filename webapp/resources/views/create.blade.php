@@ -1,4 +1,4 @@
-<h1>編集画面</h1>
+<h1>新規作成画面</h1>
 <form action="{{ route('store.post') }}" method="post">
     @csrf
     <div>
